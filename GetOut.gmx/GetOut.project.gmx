@@ -6,6 +6,16 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sound_bg</sound>
+    <sound>sound\sound_gun</sound>
+    <sound>sound\sound_player_footstep</sound>
+    <sound>sound\sound_door</sound>
+    <sound>sound\sound_key</sound>
+    <sound>sound\sound_zombie1</sound>
+    <sound>sound\sound_zombie2</sound>
+    <sound>sound\sound_player_death</sound>
+    <sound>sound\sound_switch</sound>
+    <sound>sound\sound_zombie_death</sound>
+    <sound>sound\sound_statue</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_light</sprite>
