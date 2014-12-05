@@ -19,6 +19,10 @@
       <sprite>sprites\spr_player_weapon</sprite>
     </sprites>
     <sprite>sprites\spr_ambientlight</sprite>
+    <sprites name="walls">
+      <sprite>sprites\spr_wall_32</sprite>
+      <sprite>sprites\spr_wall_16</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concept</background>
@@ -31,6 +35,10 @@
     <object>objects\obj_thing</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_gun</object>
+    <objects name="walls">
+      <object>objects\obj_wall_32</object>
+      <object>objects\obj_wall_16</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
