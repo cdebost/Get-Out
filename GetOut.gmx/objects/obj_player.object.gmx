@@ -78,14 +78,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(ord('W')))
-    y = y - 5;
-if (keyboard_check(ord('S')))
-    y = y + 5;
-if (keyboard_check(ord('A')))
-    x = x - 5;
-if (keyboard_check(ord('D')))
-    x = x + 5;
+            <string>if (keyboard_check(ord('W'))) {
+    var moveable = instance_place(x, y-5, obj_moveable);
+    if (moveable != noone)
+        moveable.y -= 5
+        
+    y -= 5;
+}
+if (keyboard_check(ord('S'))) {
+    var moveable = instance_place(x, y+5, obj_moveable);
+    if (moveable != noone)
+        moveable.y += 5
+        
+    y += 5;
+}
+if (keyboard_check(ord('A'))) {
+    var moveable = instance_place(x-5, y, obj_moveable);
+    if (moveable != noone)
+        moveable.x -= 5
+        
+    x -= 5;
+}
+if (keyboard_check(ord('D'))) {
+    var moveable = instance_place(x+5, y, obj_moveable);
+    if (moveable != noone)
+        moveable.x += 5
+        
+    x += 5;
+}
 </string>
           </argument>
         </arguments>
