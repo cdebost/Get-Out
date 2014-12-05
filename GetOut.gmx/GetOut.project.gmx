@@ -25,6 +25,7 @@
     </sprites>
     <sprite>sprites\spr_statue</sprite>
     <sprite>sprites\spr_statue_place</sprite>
+    <sprite>sprites\spr_zombie</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concept</background>
