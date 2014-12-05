@@ -30,8 +30,7 @@
 if (statue != noone)
     //Check if the center of the statue is inside the bounding box
     if (point_in_rectangle(statue.x + statue.sprite_width/2, statue.y + statue.sprite_height/2, x, y, x + sprite_width, y + sprite_height)) {
-        with (statue)
-            instance_destroy();
+        obj_player.health = 0;
     }
 </string>
           </argument>
