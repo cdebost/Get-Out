@@ -37,6 +37,104 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canShoot</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fire_rate</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0.25</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>bullet_speed</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>25</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canShoot</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="2">
       <action>
@@ -111,6 +209,37 @@ if (keyboard_check(ord('D'))) {
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="50">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (canShoot) {
+    bullet = instance_create(x, y, obj_bullet);
+    bullet.image_angle = image_angle;
+    bullet.direction = image_angle + 90;
+    bullet.speed = bullet_speed;
+    
+    canShoot = false;
+    alarm[0] = room_speed * fire_rate;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="9">
       <action>
         <libid>1</libid>
@@ -129,62 +258,6 @@ if (keyboard_check(ord('D'))) {
           <argument>
             <kind>2</kind>
             <string>You have died!</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="69">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if place_meeting(x,y,obj_gun) //check if we're touching the pickup
-{
-var ID;
-ID=instance_nearest(x,y,obj_gun); //if we are get it's ID. This allows us to have numourus
-ID.stick=true; // pickups and be able to pick up the right one
-}//Set stick to true, which makes obj_pickup2 stick to the player
-
-if place_meeting(x,y,obj_gun) //Same as press "a"
-{
-
-var ID;
-ID=instance_nearest(x,y,obj_gun);
-ID.stick=false;
-ID.speed=6; //change the speed to change how the pickup gets thrown
-if right == true
-    ID.direction=50; //the direction in which the pickup is thrown
-else
-    ID.direction=130;
-
-}
-
-solid = false;
-gravity=0.2; //this is the gravity. Is the same as "Set gravity" D&amp;D (drag and drop)
-gravity_direction=270; //if you change the "gravity=0.2;", then you'll need to change all //the things that have a *** to the new gravity
-stick=false; //our variable which will control when the object stick to the player
-
-if stick == true //if we're meant to be stick to the player...
-{ x=Guy.x; //stick to the player y=obj_player.y; gravity=0; other.solid = false;
-}
-else gravity=0.2; //else we set the gravity.
-
-if stick == false // if we're not meant to be sticking to the player.
-{ //If we didn't have that, all hell would break lose. move_contact_solid(270,12); //Move to contact in GML form speed=0; //Vertical and Horizontal speed to 0
-}
-</string>
           </argument>
         </arguments>
       </action>
