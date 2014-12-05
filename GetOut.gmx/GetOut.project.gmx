@@ -16,6 +16,7 @@
     <sound>sound\sound_switch</sound>
     <sound>sound\sound_zombie_death</sound>
     <sound>sound\sound_statue</sound>
+    <sound>sound\sound_zombie_attack</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_light</sprite>
