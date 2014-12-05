@@ -9,11 +9,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_light</sprite>
-    <sprite>sprites\spr_thing</sprite>
-    <sprite>sprites\spr__</sprite>
     <sprite>sprites\spr_bullet</sprite>
-    <sprite>sprites\spr_gun</sprite>
-    <sprite>sprites\spr_guy</sprite>
     <sprites name="player">
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_player_weapon</sprite>
@@ -37,7 +33,6 @@
     <object>objects\obj_player</object>
     <object>objects\obj_thing</object>
     <object>objects\obj_bullet</object>
-    <object>objects\obj_gun</object>
     <objects name="walls">
       <object>objects\obj_wall_32</object>
       <object>objects\obj_wall_16</object>
