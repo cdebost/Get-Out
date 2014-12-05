@@ -24,6 +24,7 @@
       <sprite>sprites\spr_wall_16</sprite>
     </sprites>
     <sprite>sprites\spr_statue</sprite>
+    <sprite>sprites\spr_statue_place</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concept</background>
