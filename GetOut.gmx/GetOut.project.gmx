@@ -6,14 +6,21 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sound_bg</sound>
+    <sound>sound\sound_gun</sound>
+    <sound>sound\sound_player_footstep</sound>
+    <sound>sound\sound_door</sound>
+    <sound>sound\sound_key</sound>
+    <sound>sound\sound_zombie1</sound>
+    <sound>sound\sound_zombie2</sound>
+    <sound>sound\sound_player_death</sound>
+    <sound>sound\sound_switch</sound>
+    <sound>sound\sound_zombie_death</sound>
+    <sound>sound\sound_statue</sound>
+    <sound>sound\sound_zombie_attack</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_light</sprite>
-    <sprite>sprites\spr_thing</sprite>
-    <sprite>sprites\spr__</sprite>
     <sprite>sprites\spr_bullet</sprite>
-    <sprite>sprites\spr_gun</sprite>
-    <sprite>sprites\spr_guy</sprite>
     <sprites name="player">
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_player_weapon</sprite>
@@ -24,6 +31,8 @@
       <sprite>sprites\spr_wall_16</sprite>
     </sprites>
     <sprite>sprites\spr_statue</sprite>
+    <sprite>sprites\spr_statue_place</sprite>
+    <sprite>sprites\spr_zombie</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concept</background>
@@ -35,7 +44,6 @@
     <object>objects\obj_player</object>
     <object>objects\obj_thing</object>
     <object>objects\obj_bullet</object>
-    <object>objects\obj_gun</object>
     <objects name="walls">
       <object>objects\obj_wall_32</object>
       <object>objects\obj_wall_16</object>
