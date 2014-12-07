@@ -11,29 +11,83 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>541</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sprite_set</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>5</kind>
-            <sprite>spr_player</sprite>
+            <kind>1</kind>
+            <string>canShoot = true;
+fire_rate = 0.25;
+bullet_speed = 25;
+
+image_speed = 0;
+image_index = 1;
+
+x_last = x;
+y_last = y;
+anim_speed = 0.22;
+
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>if (image_index == 0)
+    image_index = 2;
+else
+    image_index = 0;
+    
+audio_play_sound(sound_player_footstep, 1, false);
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>0</kind>
-            <string>0.2</string>
+            <kind>1</kind>
+            <string>canShoot = true;
+</string>
           </argument>
         </arguments>
       </action>
@@ -56,6 +110,9 @@
           <argument>
             <kind>1</kind>
             <string>image_angle = point_direction(x, y, mouse_x, mouse_y) - 90;
+
+x_last = x;
+y_last = y;
 </string>
           </argument>
         </arguments>
@@ -110,8 +167,6 @@ if (keyboard_check(ord('D'))) {
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -128,11 +183,23 @@ if (keyboard_check(ord('D'))) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index, image_index, x, y);
+            <string>if (x_last != x || y_last != y) {
+    if (alarm[1] == -1) {
+        alarm[1] = room_speed * anim_speed;
+    }
+    
+    if (image_index == 1)
+        image_index = 0
+}
+else {
+    image_index = 1;
+}
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="6" enumb="50">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -149,77 +216,75 @@ if (keyboard_check(ord('D'))) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var start_x = view_xview + 10;
-var start_y = view_yview + 10;
-
-//Background
+            <string>if (canShoot) {
+    bullet = instance_create(x, y, obj_bullet);
+    bullet.image_angle = image_angle;
+    bullet.direction = image_angle + 90;
+    bullet.speed = bullet_speed;
+    
+    canShoot = false;
+    alarm[0] = room_speed * fire_rate;
+    
+    audio_play_sound(sound_gun, 20, false);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>321</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_message</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>You have died!</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Background
 draw_set_color(c_red);
-draw_rectangle(start_x, start_y, start_x + 150, start_y + 30, false);
+draw_rectangle(10, 10, 150, 30, false);
 
 //Filling
-draw_set_color(c_green);
-draw_rectangle(start_x, start_y, start_x + 150 * (health / 100.0), start_y + 30, false);
+if (health &gt; 0) {
+    draw_set_color(c_green);
+    draw_rectangle(10, 10, 150 * (health / 100.0), 30, false);
+}
 
 //Border
 draw_set_color(c_black);
-draw_rectangle(start_x, start_y, start_x + 150, start_y + 30, true);
+draw_rectangle(10, 10, 150, 30, true);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="69">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if place_meeting(x,y,obj_gun) //check if we're touching the pickup
-{
-var ID;
-ID=instance_nearest(x,y,obj_gun); //if we are get it's ID. This allows us to have numourus
-ID.stick=true; // pickups and be able to pick up the right one
-}//Set stick to true, which makes obj_pickup2 stick to the player
-
-if place_meeting(x,y,obj_gun) //Same as press "a"
-{
-
-var ID;
-ID=instance_nearest(x,y,obj_gun);
-ID.stick=false;
-ID.speed=6; //change the speed to change how the pickup gets thrown
-if right == true
-    ID.direction=50; //the direction in which the pickup is thrown
-else
-    ID.direction=130;
-
-}
-
-solid = false;
-gravity=0.2; //this is the gravity. Is the same as "Set gravity" D&amp;D (drag and drop)
-gravity_direction=270; //if you change the "gravity=0.2;", then you'll need to change all //the things that have a *** to the new gravity
-stick=false; //our variable which will control when the object stick to the player
-
-if stick == true //if we're meant to be stick to the player...
-{ x=Guy.x; //stick to the player y=obj_player.y; gravity=0; other.solid = false;
-}
-else gravity=0.2; //else we set the gravity.
-
-if stick == false // if we're not meant to be sticking to the player.
-{ //If we didn't have that, all hell would break lose. move_contact_solid(270,12); //Move to contact in GML form speed=0; //Vertical and Horizontal speed to 0
-}
 </string>
           </argument>
         </arguments>
