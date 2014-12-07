@@ -52,7 +52,7 @@
     <object>objects\obj_statue</object>
     <object>objects\obj_moveable</object>
     <object>objects\obj_statue_place</object>
-    <object>objects\obj_Monster_test_</object>
+    <object>objects\obj_zombie</object>
     <object>objects\obj_wall_collisions</object>
   </objects>
   <rooms name="rooms">
