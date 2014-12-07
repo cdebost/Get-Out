@@ -54,6 +54,10 @@
     <object>objects\obj_statue_place</object>
     <object>objects\obj_zombie</object>
     <object>objects\obj_wall_collisions</object>
+    <object>objects\obj_ZSGarden</object>
+    <object>objects\obj_ZSRoom</object>
+    <object>objects\obj_ZSBoss</object>
+    <object>objects\obj_ZSPuzzleRoom</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
