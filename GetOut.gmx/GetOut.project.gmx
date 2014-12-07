@@ -33,6 +33,7 @@
     <sprite>sprites\spr_statue</sprite>
     <sprite>sprites\spr_statue_place</sprite>
     <sprite>sprites\spr_zombie</sprite>
+    <sprite>sprites\spr_wall_collisions</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_concept</background>
@@ -52,6 +53,7 @@
     <object>objects\obj_moveable</object>
     <object>objects\obj_statue_place</object>
     <object>objects\obj_Monster_test_</object>
+    <object>objects\obj_wall_collisions</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

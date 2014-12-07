@@ -55,6 +55,7 @@
     <instance objName="obj_statue" x="1568" y="1536" name="inst_C86F2D40" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_statue_place" x="1440" y="1472" name="inst_4ADC7858" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_light" x="320" y="160" name="inst_A0A29966" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall_collisions" x="0" y="0" name="inst_41888DF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
