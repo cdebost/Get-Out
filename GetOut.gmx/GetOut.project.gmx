@@ -51,6 +51,7 @@
     <object>objects\obj_statue</object>
     <object>objects\obj_moveable</object>
     <object>objects\obj_statue_place</object>
+    <object>objects\obj_Monster_test_</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
